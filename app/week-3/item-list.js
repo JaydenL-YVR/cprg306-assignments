@@ -70,14 +70,20 @@ const ItemList = () =>
   return (
     <div className="max-w-md mx-auto p-4">
       <ul>
-        {items.map((item, index) => (
-          <Item
-            key={index}
-            name={item.name}
-            quantity={item.quantity}
-            category={item.category}
-          />
-        ))}
+        {items.map((item, index) => {
+          console.log(item.name);
+          console.log(item.quantity);
+          console.log(item.category);
+
+          return (
+            <Item
+              key={index}
+              name={item.name}
+              quantity={item.quantity}
+              category={item.category}
+            />
+          );
+        })}
       </ul>
     </div>
   );
