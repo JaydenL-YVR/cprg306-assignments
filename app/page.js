@@ -13,6 +13,9 @@ const HomePage = () => {
         <Link href="/week-3">
           <div className="text-blue-500 hover:underline ml-2">Week 3</div>
         </Link>
+        <Link href="/week-4">
+          <div className="text-blue-500 hover:underline ml-2">Week 4</div>
+        </Link>
       </div>
     </main>
   );

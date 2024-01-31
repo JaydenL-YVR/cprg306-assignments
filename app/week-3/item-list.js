@@ -1,10 +1,8 @@
 import React from 'react';
 import Item from './item';
 
-const ItemList = () => 
-{
-  const items = 
-  [
+export default function ItemList() {
+  const items = [
     {
       name: "milk, 4 L 🥛",
       quantity: 1,
@@ -70,23 +68,15 @@ const ItemList = () =>
   return (
     <div className="max-w-md mx-auto p-4">
       <ul>
-        {items.map((item, index) => {
-          console.log(item.name);
-          console.log(item.quantity);
-          console.log(item.category);
-
-          return (
-            <Item
-              key={index}
-              name={item.name}
-              quantity={item.quantity}
-              category={item.category}
-            />
-          );
-        })}
+        {items.map((item, index) => (
+          <Item
+            key={index}
+            name={item.name}
+            quantity={item.quantity}
+            category={item.category}
+          />
+        ))}
       </ul>
     </div>
   );
-};
-
-export default ItemList;
+}
