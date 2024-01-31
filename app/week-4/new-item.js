@@ -8,6 +8,7 @@ export default function NewItem() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        
         const item = {
             name: name,
             quantity: quantity,
