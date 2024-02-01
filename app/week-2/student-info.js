@@ -1,8 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-const StudentInfo = () => 
-{
+export default function StudentInfo(){
   return (
     <div>
       <p>Jayden Liwanag</p>
@@ -10,5 +9,3 @@ const StudentInfo = () =>
     </div>
   );
 };
-
-export default StudentInfo;
