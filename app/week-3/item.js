@@ -1,6 +1,6 @@
 import React from 'react';
-
-const Item = ({ name, quantity, category }) => {
+export default function Item({ name, quantity, category })
+{
   return (
     <li className="border p-1 border-teal-900 mb-4 bg-teal-900 text-white">
       <p className="text-lg font-bold">{name}</p>
@@ -9,5 +9,3 @@ const Item = ({ name, quantity, category }) => {
     </li>
   );
 };
-
-export default Item;

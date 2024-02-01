@@ -1,7 +1,7 @@
 import React from 'react';
 import ItemList from './item-list';
 
-const Page = () => 
+export default function Page()
 {
   return (
     <main className="mt-4">
@@ -10,5 +10,3 @@ const Page = () =>
     </main>
   );
 };
-
-export default Page;
