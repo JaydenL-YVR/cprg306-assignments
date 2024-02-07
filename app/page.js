@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-const HomePage = () => {
+export default function Page() {
   return (
     <main>
       <h1 className="text-3xl font-bold mb-4">CPRG 306: Web Development 2 - Assignments</h1>
@@ -22,6 +22,4 @@ const HomePage = () => {
       </div>
     </main>
   );
-};
-
-export default HomePage;
+}
