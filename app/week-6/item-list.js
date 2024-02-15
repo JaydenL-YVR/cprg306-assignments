@@ -1,32 +1,31 @@
 "use client";
 
 import React, { useState } from 'react';
-import itemsData from './items.json';
 
-export default function ItemList() {
+export default function ItemList({ items }) {
   const [sortBy, setSortBy] = useState('name');
 
-  let items = itemsData.map((item) => ({ ...item }));
+  const sortItems = (itemsToSort) => {
+    let sortedItems = [...itemsToSort];
 
-  const sortItems = () => {
     if (sortBy === 'name') {
-      items.sort((a, b) => a.name.localeCompare(b.name));
+      sortedItems.sort((a, b) => a.name.localeCompare(b.name));
     } else if (sortBy === 'category') {
-      items.sort((a, b) => a.category.localeCompare(b.category));
+      sortedItems.sort((a, b) => a.category.localeCompare(b.category));
     }
-  };
 
-  sortItems();
+    return sortedItems;
+  };
 
   const handleSortByName = () => {
     setSortBy('name');
-    sortItems();
   };
 
   const handleSortByCategory = () => {
     setSortBy('category');
-    sortItems();
   };
+
+  let sortedItems = sortItems(items);
 
   return (
     <div className="flex flex-col items-center">
@@ -37,8 +36,8 @@ export default function ItemList() {
       </div>
 
       <div className="w-full max-w-md">
-        {items.length === 0 && <p className="text-center">No items found.</p>}
-        {items.map((item) => (
+        {sortedItems.length === 0 && <p className="text-center">No items found.</p>}
+        {sortedItems.map((item) => (
           <div key={item.id} className="mb-4 border p-1 border-teal-900 bg-teal-900 text-white">
             <p className="text-lg font-bold">{item.name}</p>
             <p>Quantity: {item.quantity}</p>
