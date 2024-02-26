@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+"use client";
+
+import { useState } from "react";
+import Item from "./item";
 
 export default function ItemList({ items, onItemSelect }) {
   const [sortBy, setSortBy] = useState("name");
@@ -21,21 +24,22 @@ export default function ItemList({ items, onItemSelect }) {
   };
 
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen">
-      <div className='flex items-center px-2'>
+    <main>
+      <div className='flex items-start px-2 mt-2 mb-2'>
         <p className='my-3 mr-2'>Sort by:</p>
         <button className={`${sortBy === "name" ? "bg-blue-900" : "bg-teal-900"} p-1 m-2 w-28`} onClick={() => handleClick("name")}>Name</button>
         <button className={`${ sortBy === "category" ? "bg-blue-900" : "bg-teal-900"} p-1 m-2 w-28`} onClick={() => handleClick("category")}>Category</button>
       </div>
 
-      <div className="w-full max-w-md">
-        {sortedItems.length === 0 && <p className="text-center">No items found.</p>}
+      <div className='w-full max-w-md'>
         {sortedItems.map((item) => (
-          <div key={item.id} className="mb-4 border p-1 border-teal-900 bg-teal-900 text-white">
-            <p className="text-lg font-bold">{item.name}</p>
-            <p>Quantity: {item.quantity}</p>
-            <p>Category: {item.category}</p>
-          </div>
+          <Item
+            key={item.id}
+            name={item.name}
+            quantity={item.quantity}
+            category={item.category}
+            onSelect={() => onItemSelect(item.name)}
+          />
         ))}
       </div>
     </main>
