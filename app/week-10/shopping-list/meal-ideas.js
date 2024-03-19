@@ -29,13 +29,11 @@ export default function MealIdea({ ingredient }) {
       <div>
         {meals ? (
           <div>
-            <div className="text-lg font-semibold mb-2">
-              Here are some meal ideas using {ingredient}:
-            </div>
+            <div>Here are some meal ideas using {ingredient}:</div>
             <div>
               {meals.map((meal) => (
                 <ul key={meal.idMeal}>
-                  <li className="p-2 m-1 mt-2 bg-teal-900 hover:bg-blue-900 cursor-pointer rounded-md">
+                  <li className='p-2 m-1 mt-2 bg-teal-900 hover:bg-blue-900 cursor-pointer rounded-md'>
                     {meal.strMeal}
                   </li>
                 </ul>
